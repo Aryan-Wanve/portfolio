@@ -135,7 +135,7 @@ export default function Home() {
         </p>
 
         <a
-          href="mailto:your@email.com"
+          href="mailto:aryanwanve15@gmail.com"
           className="bg-white text-black px-8 py-3 rounded-lg font-semibold"
         >
           Contact Me

@@ -9,7 +9,7 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
         
         <h1 className="text-white font-bold text-lg">
-          YourName
+          Oneway
         </h1>
 
         <div className="flex gap-6 text-sm">
