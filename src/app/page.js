@@ -1,65 +1,147 @@
-import Image from "next/image";
+"use client";
+
+import Link from "next/link";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
 
 export default function Home() {
+  const titleRef = useRef(null);
+  const textRef = useRef(null);
+  const buttonsRef = useRef(null);
+
+  useEffect(() => {
+    gsap.from(titleRef.current, {
+      y: 80,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out",
+    });
+
+    gsap.from(textRef.current, {
+      y: 80,
+      opacity: 0,
+      delay: 0.3,
+      duration: 1,
+      ease: "power3.out",
+    });
+
+    gsap.from(buttonsRef.current, {
+      y: 80,
+      opacity: 0,
+      delay: 0.6,
+      duration: 1,
+      ease: "power3.out",
+    });
+  }, []);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
+    <main className="bg-black text-white min-h-screen">
+
+      {/* HERO */}
+      <section className="relative h-screen flex items-center justify-center text-center px-4">
+
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-40"
+        >
+          <source src="/hero.mp4" type="video/mp4" />
+        </video>
+
+        <div className="absolute inset-0 bg-black/60"></div>
+
+        <div className="relative z-10 max-w-2xl">
+          
+          <h1
+            ref={titleRef}
+            className="text-4xl md:text-6xl font-bold mb-6"
+          >
+            Cinematic Video Editor
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+
+          <p
+            ref={textRef}
+            className="text-gray-300 mb-8"
+          >
+            Creating high-impact visuals that capture attention and tell stories.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+          <div
+            ref={buttonsRef}
+            className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <Link
+              href="/work"
+              className="bg-white text-black px-6 py-3 rounded-lg font-semibold"
+            >
+              View Work
+            </Link>
+
+            <a
+              href="mailto:your@email.com"
+              className="border border-white px-6 py-3 rounded-lg"
+            >
+              Contact Me
+            </a>
+          </div>
+
         </div>
-      </main>
-    </div>
+
+        {/* Scroll cue */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-gray-400 animate-bounce">
+          ↓
+        </div>
+
+      </section>
+
+      {/* WHAT I DO */}
+      <section className="py-20 px-4 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          What I Do
+        </h2>
+
+        <p className="text-gray-400 max-w-2xl mx-auto mb-10">
+          I create cinematic edits, brand promos, and high-impact content designed to grab attention and drive engagement.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div>
+            <h3 className="text-xl font-semibold mb-2">Reels Editing</h3>
+            <p className="text-gray-500">Fast-paced edits optimized for social media.</p>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold mb-2">Brand Videos</h3>
+            <p className="text-gray-500">Clean, cinematic visuals for businesses.</p>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold mb-2">Ads & Promos</h3>
+            <p className="text-gray-500">High-converting video content.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          Let’s Work Together
+        </h2>
+
+        <p className="text-gray-400 mb-8">
+          Have a project in mind? Let’s create something great.
+        </p>
+
+        <a
+          href="mailto:your@email.com"
+          className="bg-white text-black px-8 py-3 rounded-lg font-semibold"
+        >
+          Contact Me
+        </a>
+      </section>
+
+    </main>
   );
 }
