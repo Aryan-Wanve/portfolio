@@ -33,10 +33,9 @@ const skills = [
 ];
 
 const socialLinks = [
-  { label: "Instagram", href: "https://instagram.com/yourhandle" },
-  { label: "YouTube", href: "https://youtube.com/@yourhandle" },
-  { label: "Behance", href: "https://behance.net/yourhandle" },
-  { label: "LinkedIn", href: "https://linkedin.com/in/yourhandle" },
+  { label: "Photography Instagram", href: "https://www.instagram.com/from_aryan/" },
+  { label: "Videography Instagram", href: "https://www.instagram.com/cine_chasers/" },
+  { label: "YouTube", href: "https://www.youtube.com/@Onewayyyyyyy" },
 ];
 
 export default function Home() {
@@ -66,7 +65,7 @@ export default function Home() {
       ].join("\n")
     );
 
-    window.location.href = `mailto:hello@yourdomain.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:aryanwanve15@gmail.com?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -83,7 +82,7 @@ export default function Home() {
         <div className="video-overlay" />
         <header className="topbar">
           <a className="brand" href="#home">
-            Aryan Visuals
+            Aryan Wanve
           </a>
           <nav className="topnav" aria-label="Primary">
             <a href="#hook">Edits</a>
@@ -93,11 +92,14 @@ export default function Home() {
         </header>
 
         <div className="hero-content">
-          <p className="eyebrow">Video editor • Visual storyteller • Motion-first creative</p>
-          <h1>I turn raw footage into the kind of edit people replay.</h1>
+          <p className="eyebrow">Oneway | Video editor | Motion-first creative</p>
+          <h1>
+            <span className="hero-line">I turn raw footage into</span>{" "}
+            <span className="hero-line">the kind of edit people replay.</span>
+          </h1>
           <p className="hero-copy">
-            Cinematic cuts, sharp pacing, and digital energy crafted for artists,
-            brands, and ideas that need to hit instantly.
+            Oneway is the creative identity behind Aryan Wanve, built for
+            cinematic cuts, sharp pacing, and digital energy that lands fast.
           </p>
           <div className="hero-actions">
             <a className="button button-solid" href="#hook">
@@ -161,15 +163,16 @@ export default function Home() {
         <div className="starter-grid">
           <article className="info-panel">
             <p className="panel-label">About me</p>
-            <h3>I build edits with pace, clarity, and emotion.</h3>
+            <h3>I build edits with pace, clarity, and the Oneway feel.</h3>
+            <p>
+              Aryan Wanve is my company, and Oneway is the creative lane I bring
+              into every project: clean rhythm, strong mood, and edits that feel
+              intentional instead of generic.
+            </p>
             <p>
               I focus on making videos feel alive, whether that means fast-moving
               reels, dramatic event cuts, or polished visual stories for brands
               and creators.
-            </p>
-            <p>
-              Update this text with your exact background, city, client history,
-              or niche when you are ready.
             </p>
           </article>
 
@@ -201,20 +204,20 @@ export default function Home() {
           <h2>Contact me and send a message.</h2>
           <p>
             This form opens an email draft so visitors can reach you right away.
-            Replace the email address with your real one when you are ready.
+            Send your idea, timeline, and references, and I will get back to you.
           </p>
         </div>
 
         <div className="contact-grid">
           <article className="contact-card">
             <p className="panel-label">Let&apos;s work</p>
-            <h3>Need an editor who can shape attention in seconds?</h3>
+            <h3>Need Aryan Wanve and Oneway on your next visual?</h3>
             <p>
-              Share the idea, timeline, and style you want. I&apos;ll help turn it
+              Share the idea, timeline, and style you want. I will help turn it
               into a cut that feels intentional from the first frame.
             </p>
-            <a className="contact-link" href="mailto:hello@yourdomain.com">
-              hello@yourdomain.com
+            <a className="contact-link" href="mailto:aryanwanve15@gmail.com">
+              aryanwanve15@gmail.com
             </a>
           </article>
 
@@ -261,9 +264,9 @@ export default function Home() {
 
       <footer className="site-footer">
         <div>
-          <p className="footer-title">Aryan Visuals</p>
+          <p className="footer-title">Aryan Wanve</p>
           <p className="footer-copy">
-            Edit-driven portfolio for music, brands, events, and digital stories.
+            Oneway edits for music, brands, events, and digital stories.
           </p>
         </div>
 
@@ -275,7 +278,7 @@ export default function Home() {
           ))}
         </div>
 
-        <p className="footer-copy">© 2026 Aryan Visuals. All rights reserved.</p>
+        <p className="footer-copy">(c) 2026 Aryan Wanve. All rights reserved.</p>
       </footer>
     </main>
   );
