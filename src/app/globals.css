@@ -16,7 +16,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: "Trebuchet MS", "Avenir Next", "Segoe UI", sans-serif;
+  --font-sans: "Aptos", "Segoe UI", sans-serif;
+  --font-display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
   --font-mono: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
 }
 
@@ -159,13 +160,17 @@ textarea {
   margin: 0 0 0.85rem;
   color: var(--accent-soft);
   text-transform: uppercase;
-  letter-spacing: 0.24em;
-  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  font-size: 0.72rem;
+  font-weight: 700;
 }
 
 .hero-content h1,
 .section-heading h2 {
   margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.04em;
   line-height: 0.94;
   text-wrap: balance;
 }
@@ -205,12 +210,13 @@ textarea {
 .contact-card p,
 .footer-copy {
   color: var(--muted);
-  line-height: 1.7;
+  line-height: 1.78;
 }
 
 .hero-copy {
   width: min(100%, 38rem);
-  font-size: clamp(1.02rem, 2.4vw, 1.2rem);
+  font-size: clamp(1.04rem, 1.6vw, 1.18rem);
+  text-wrap: pretty;
   animation: riseFade 0.95s var(--ease-out-expo) 0.34s both;
 }
 
@@ -246,6 +252,7 @@ textarea {
   background: var(--accent);
   color: #150c06;
   font-weight: 700;
+  letter-spacing: 0.01em;
 }
 
 .button-ghost {
@@ -261,6 +268,7 @@ textarea {
 
 .section-heading h2 {
   font-size: clamp(2.6rem, 6vw, 4.2rem);
+  max-width: 11ch;
 }
 
 .section-heading p {
@@ -327,7 +335,10 @@ textarea {
 .info-panel h3,
 .contact-card h3 {
   margin: 0;
-  font-size: 1.55rem;
+  font-family: var(--font-display);
+  font-size: 1.72rem;
+  line-height: 1;
+  letter-spacing: -0.03em;
 }
 
 .featured-video-copy p:last-child,
@@ -399,7 +410,7 @@ textarea {
   margin: 0;
   padding-left: 1.1rem;
   color: var(--muted);
-  line-height: 1.7;
+  line-height: 1.85;
 }
 
 .contact-grid {
@@ -430,7 +441,9 @@ textarea {
 }
 
 .contact-form span {
-  font-size: 0.95rem;
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   color: var(--foreground);
 }
 
@@ -490,6 +503,11 @@ textarea {
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
+}
+
+.footer-links a {
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
 }
 
 .site-footer > :last-child {

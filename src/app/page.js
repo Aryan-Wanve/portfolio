@@ -4,32 +4,34 @@ import { useState } from "react";
 
 const featuredEdits = [
   {
-    title: "Street Pulse",
-    tag: "Music video recut",
+    title: "Music-driven cuts",
+    tag: "Rhythm-first editing",
     summary:
-      "Fast cuts, mood-heavy transitions, and a cinematic rhythm built to hold attention.",
+      "High-energy pacing, mood-heavy transitions, and edits shaped to move with the beat.",
   },
   {
-    title: "Momentum Reel",
-    tag: "Brand energy edit",
+    title: "Brand visuals",
+    tag: "Commercial storytelling",
     summary:
-      "Punchy pacing and layered motion graphics shaped for social-first storytelling.",
+      "Polished visuals for reels, promos, and campaigns that need to feel sharp and memorable.",
   },
   {
-    title: "Night Shift",
-    tag: "Aftermovie sequence",
+    title: "Cinematic sequences",
+    tag: "Atmosphere and motion",
     summary:
-      "A darker visual language with texture, speed ramps, and a polished final-grade feel.",
+      "Frames, color, and motion built to create atmosphere instead of just showing footage.",
   },
 ];
 
 const skills = [
+  "Videography",
+  "Photography",
+  "Cinematography",
   "Video editing",
-  "Color grading",
+  "Photo editing",
+  "Graphic designing",
   "Motion graphics",
-  "Story-driven cuts",
-  "Social media reels",
-  "Creative direction",
+  "Color grading",
 ];
 
 const socialLinks = [
@@ -92,14 +94,15 @@ export default function Home() {
         </header>
 
         <div className="hero-content">
-          <p className="eyebrow">Oneway | Video editor | Motion-first creative</p>
+          <p className="eyebrow">Oneway | Visual direction | Film-driven storytelling</p>
           <h1>
             <span className="hero-line">I turn raw footage into</span>{" "}
             <span className="hero-line">the kind of edit people replay.</span>
           </h1>
           <p className="hero-copy">
-            Oneway is the creative identity behind Aryan Wanve, built for
-            cinematic cuts, sharp pacing, and digital energy that lands fast.
+            Aryan Wanve is the company. Oneway is the creative identity behind
+            it, built for visuals with mood, movement, and a finish that stays
+            with people.
           </p>
           <div className="hero-actions">
             <a className="button button-solid" href="#hook">
@@ -115,10 +118,11 @@ export default function Home() {
       <section className="hook-section" id="hook">
         <div className="section-heading">
           <p className="eyebrow">Hook</p>
-          <h2>Best edits built to stop the scroll.</h2>
+          <h2>Visual work built to pull people in fast.</h2>
           <p>
-            Using your current background video as the placeholder showcase so you
-            can swap in the final cuts later without changing the layout.
+            A front row for the edits, sequences, and visual energy that define
+            the Oneway style. Your current background video is standing in until
+            the final showcase reels are ready.
           </p>
         </div>
 
@@ -134,10 +138,10 @@ export default function Home() {
             />
             <div className="featured-video-copy">
               <p className="eyebrow">Featured edit</p>
-              <h3>Main reel placeholder</h3>
+              <h3>Signature reel placeholder</h3>
               <p>
-                Drop your strongest sequence here later and this block will still
-                work as the centerpiece of the section.
+                This is where the strongest Oneway piece can sit later, holding
+                the section with motion, mood, and instant visual pull.
               </p>
             </div>
           </article>
@@ -157,22 +161,22 @@ export default function Home() {
       <section className="starter-section" id="starter">
         <div className="section-heading">
           <p className="eyebrow">Starter</p>
-          <h2>Skills, style, and the person behind the timeline.</h2>
+          <h2>The eye, the craft, and the skills behind the work.</h2>
         </div>
 
         <div className="starter-grid">
           <article className="info-panel">
             <p className="panel-label">About me</p>
-            <h3>I build edits with pace, clarity, and the Oneway feel.</h3>
+            <h3>I build visuals with pace, atmosphere, and intent.</h3>
             <p>
-              Aryan Wanve is my company, and Oneway is the creative lane I bring
-              into every project: clean rhythm, strong mood, and edits that feel
-              intentional instead of generic.
+              Aryan Wanve is my company, and Oneway is the creative language I
+              bring into every frame: cinematic rhythm, strong mood, and visuals
+              that feel crafted instead of copied.
             </p>
             <p>
-              I focus on making videos feel alive, whether that means fast-moving
-              reels, dramatic event cuts, or polished visual stories for brands
-              and creators.
+              From reels and campaign cuts to photography-led visuals and motion
+              work, I focus on making every output feel alive, polished, and
+              worth watching twice.
             </p>
           </article>
 
@@ -190,9 +194,9 @@ export default function Home() {
           <article className="info-panel accent-panel">
             <p className="panel-label">Quick info</p>
             <ul className="info-list">
-              <li>Available for freelance projects and creative collaborations.</li>
-              <li>Editing stack: Premiere Pro, After Effects, DaVinci Resolve.</li>
-              <li>Fast turnarounds for reels, promos, music videos, and highlights.</li>
+              <li>Available for freelance work, visual direction, and collaborations.</li>
+              <li>Works across videography, photography, edits, graphics, and motion.</li>
+              <li>Best fit for reels, campaigns, music visuals, cinematic cuts, and promos.</li>
             </ul>
           </article>
         </div>
@@ -201,20 +205,22 @@ export default function Home() {
       <section className="contact-section" id="contact">
         <div className="section-heading">
           <p className="eyebrow">Contact</p>
-          <h2>Contact me and send a message.</h2>
+          <h2>Let&apos;s build something people feel on first watch.</h2>
           <p>
-            This form opens an email draft so visitors can reach you right away.
-            Send your idea, timeline, and references, and I will get back to you.
+            If you have a project, concept, or visual direction in mind, send it
+            through. Share the mood, the timeline, and the kind of impact you
+            want the final piece to leave.
           </p>
         </div>
 
         <div className="contact-grid">
           <article className="contact-card">
             <p className="panel-label">Let&apos;s work</p>
-            <h3>Need Aryan Wanve and Oneway on your next visual?</h3>
+            <h3>Need Oneway on your next visual project?</h3>
             <p>
-              Share the idea, timeline, and style you want. I will help turn it
-              into a cut that feels intentional from the first frame.
+              From concept to final export, I can shape the footage, the pacing,
+              the color, and the graphic finish into something that feels
+              complete from the first frame.
             </p>
             <a className="contact-link" href="mailto:aryanwanve15@gmail.com">
               aryanwanve15@gmail.com
@@ -266,7 +272,7 @@ export default function Home() {
         <div>
           <p className="footer-title">Aryan Wanve</p>
           <p className="footer-copy">
-            Oneway edits for music, brands, events, and digital stories.
+            Oneway visual work across film, photo, motion, and design.
           </p>
         </div>
 
