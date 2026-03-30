@@ -6,18 +6,21 @@ const featuredEdits = [
   {
     title: "Music-driven cuts",
     tag: "Rhythm-first editing",
+    video: "/concert.mp4",
     summary:
       "High-energy pacing, mood-heavy transitions, and edits shaped to move with the beat.",
   },
   {
     title: "Brand visuals",
     tag: "Commercial storytelling",
+    video: "/clothing showcase.mp4",
     summary:
       "Polished visuals for reels, promos, and campaigns that need to feel sharp and memorable.",
   },
   {
     title: "Cinematic sequences",
     tag: "Atmosphere and motion",
+    video: "/talking head.mp4",
     summary:
       "Frames, color, and motion built to create atmosphere instead of just showing footage.",
   },
@@ -165,7 +168,7 @@ export default function Home() {
               >
                 <video
                   className="vertical-video"
-                  src="/hero.mp4"
+                  src={edit.video}
                   autoPlay
                   muted
                   loop
@@ -182,7 +185,7 @@ export default function Home() {
             <article className="featured-video-card horizontal-feature" data-reveal>
               <video
                 className="hook-video"
-                src="/hero.mp4"
+                src="/hori trailer.mp4"
                 autoPlay
                 muted
                 loop
@@ -201,7 +204,7 @@ export default function Home() {
             <article className="vertical-video-card vertical-video-card-tall" data-reveal>
               <video
                 className="vertical-video"
-                src="/hero.mp4"
+                src="/cafe and interior.mp4"
                 autoPlay
                 muted
                 loop
