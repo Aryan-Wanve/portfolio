@@ -4,25 +4,25 @@ import { useEffect, useState } from "react";
 
 const featuredEdits = [
   {
-    title: "Music-driven cuts",
-    tag: "Rhythm-first editing",
+    title: "Concert reel",
+    tag: "Live energy edit",
     video: "/concert.mp4",
     summary:
-      "High-energy pacing, mood-heavy transitions, and edits shaped to move with the beat.",
+      "Fast-paced coverage shaped around performance, crowd energy, lights, and movement.",
   },
   {
-    title: "Brand visuals",
-    tag: "Commercial storytelling",
+    title: "Clothing showcase",
+    tag: "Fashion-focused visual",
     video: "/clothing showcase.mp4",
     summary:
-      "Polished visuals for reels, promos, and campaigns that need to feel sharp and memorable.",
+      "Clean product framing and polished edits built to make style, texture, and motion stand out.",
   },
   {
-    title: "Cinematic sequences",
-    tag: "Atmosphere and motion",
+    title: "Talking head",
+    tag: "People and presence",
     video: "/talking head.mp4",
     summary:
-      "Frames, color, and motion built to create atmosphere instead of just showing footage.",
+      "A more direct, personality-led format shaped with clarity, rhythm, and strong visual presence.",
   },
 ];
 
@@ -193,10 +193,9 @@ export default function Home() {
               />
               <div className="featured-video-copy">
                 <p className="eyebrow">Horizontal feature</p>
-                <h3>Wide-format showcase placeholder</h3>
+                <h3>Horizontal trailer</h3>
                 <p>
-                  Keep one cinematic horizontal piece here for trailers,
-                  aftermovies, or broader visual storytelling moments.
+                  A wider cinematic cut for trailers, mood-led edits, and visual storytelling that needs more room to breathe.
                 </p>
               </div>
             </article>
@@ -211,11 +210,10 @@ export default function Home() {
                 playsInline
               />
               <div className="vertical-video-copy">
-                <p className="edit-tag">Hero vertical feature</p>
-                <h3>Flagship reel placeholder</h3>
+                <p className="edit-tag">Atmosphere-led feature</p>
+                <h3>Cafe and interior</h3>
                 <p>
-                  Use this larger vertical slot for the strongest reel you want
-                  people to notice first.
+                  Interior tones, quiet movement, and a more cinematic pace built around space, texture, and mood.
                 </p>
               </div>
             </article>
