@@ -477,8 +477,20 @@ textarea {
   max-width: 32rem;
 }
 
+.footer-brand-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.footer-brand-copy {
+  display: grid;
+  gap: 0.9rem;
+}
+
 .footer-brand h2 {
-  margin: 0 0 0.9rem;
+  margin: 0;
   font-family: var(--font-display);
   font-size: clamp(1.65rem, 3vw, 2.45rem);
   line-height: 1.02;
@@ -486,7 +498,8 @@ textarea {
 }
 
 .footer-button {
-  margin-top: 1.4rem;
+  margin-top: 0;
+  white-space: nowrap;
 }
 
 .footer-nav-grid {
@@ -642,6 +655,11 @@ textarea {
 
   .footer-nav-grid {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-brand-row {
+    grid-template-columns: 1fr;
+    align-items: start;
   }
 
   .footer-bottom {

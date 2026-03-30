@@ -312,14 +312,21 @@ export default function Home() {
         <div className="footer-shell">
           <div className="footer-brand">
             <p className="footer-title">Aryan Wanve</p>
-            <h2>Oneway is where visuals get their final form.</h2>
-            <p className="footer-copy">
-              Visual work across videography, photography, cinematography, edits,
-              motion graphics, color, and design.
-            </p>
-            <a className="button button-solid footer-button" href="mailto:aryanwanve15@gmail.com">
-              Start a project
-            </a>
+            <div className="footer-brand-row">
+              <div className="footer-brand-copy">
+                <h2>Oneway is where visuals get their final form.</h2>
+                <p className="footer-copy">
+                  Visual work across videography, photography, cinematography,
+                  edits, motion graphics, color, and design.
+                </p>
+              </div>
+              <a
+                className="button button-solid footer-button"
+                href="mailto:aryanwanve15@gmail.com"
+              >
+                Start a project
+              </a>
+            </div>
           </div>
 
           <div className="footer-nav-grid">
