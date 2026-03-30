@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const featuredEdits = [
@@ -46,6 +47,7 @@ const socialLinks = [
 
 const footerLinks = [
   { label: "Home", href: "#home" },
+  { label: "Work", href: "/work" },
   { label: "Featured work", href: "#hook" },
   { label: "About", href: "#starter" },
   { label: "Contact", href: "#contact" },
@@ -120,6 +122,7 @@ export default function Home() {
             Aryan Wanve
           </a>
           <nav className="topnav" aria-label="Primary">
+            <Link href="/work">Work</Link>
             <a href="#hook">Edits</a>
             <a href="#starter">About</a>
             <a href="#contact">Contact</a>
@@ -137,6 +140,9 @@ export default function Home() {
             finish that stays with people.
           </p>
           <div className="hero-actions">
+            <Link className="button button-ghost" href="/work">
+              Explore full work page
+            </Link>
             <a className="button button-solid" href="#hook">
               Watch featured work
             </a>
