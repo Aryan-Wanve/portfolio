@@ -74,7 +74,7 @@ textarea {
 .hero-section {
   min-height: 100vh;
   display: block;
-  margin-bottom: -1px;
+  overflow: hidden;
 }
 
 .section-video {
@@ -148,10 +148,10 @@ textarea {
 .hero-content {
   width: min(100%, 46rem);
   min-height: 100vh;
-  padding: 6rem 0 4rem;
+  padding: 10rem 0 4rem;
   margin-inline: auto;
   text-align: center;
-  place-content: center;
+  place-content: start center;
   place-items: center;
   display: grid;
   row-gap: 1.15rem;
@@ -301,13 +301,7 @@ textarea {
 .starter-section,
 .contact-section {
   border-top: 1px solid var(--line);
-}
-
-.hook-section {
-  margin-top: -3rem;
-  padding-top: 5rem;
-  background:
-    linear-gradient(180deg, rgba(6, 7, 10, 0) 0, rgba(6, 7, 10, 0.94) 3rem, #06070a 6rem);
+  background: var(--background);
 }
 
 .featured-grid,
@@ -608,11 +602,6 @@ textarea {
     padding-bottom: 4.5rem;
   }
 
-  .hook-section {
-    margin-top: -2.25rem;
-    padding-top: 4.25rem;
-  }
-
   .topbar {
     position: relative;
     top: auto;
@@ -625,7 +614,7 @@ textarea {
   .hero-content {
     width: min(100%, 42rem);
     min-height: auto;
-    padding: 4rem 0 4rem;
+    padding: 6rem 0 4rem;
     margin-inline: auto;
   }
 
