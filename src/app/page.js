@@ -35,6 +35,7 @@ const skills = [
 ];
 
 const socialLinks = [
+  { label: "Personal Instagram", href: "https://www.instagram.com/aryanwanve/" },
   { label: "Photography Instagram", href: "https://www.instagram.com/from_aryan/" },
   { label: "Videography Instagram", href: "https://www.instagram.com/cine_chasers/" },
   { label: "YouTube", href: "https://www.youtube.com/@Onewayyyyyyy" },
@@ -312,20 +313,15 @@ export default function Home() {
         <div className="footer-shell">
           <div className="footer-brand">
             <p className="footer-title">Aryan Wanve</p>
-            <div className="footer-brand-row">
-              <div className="footer-brand-copy">
-                <h2>Oneway is where visuals get their final form.</h2>
-                <p className="footer-copy">
-                  Visual work across videography, photography, cinematography,
-                  edits, motion graphics, color, and design.
-                </p>
-              </div>
-              <a
-                className="button button-solid footer-button"
-                href="mailto:aryanwanve15@gmail.com"
-              >
-                Start a project
-              </a>
+            <div className="footer-brand-copy">
+              <h2>
+                <span className="footer-line">Oneway is where visuals</span>
+                <span className="footer-line">get their final form.</span>
+              </h2>
+              <p className="footer-copy">
+                Visual work across videography, photography, cinematography,
+                edits, motion graphics, color, and design.
+              </p>
             </div>
           </div>
 
@@ -339,6 +335,12 @@ export default function Home() {
                   </a>
                 ))}
               </div>
+              <a
+                className="button button-solid footer-button footer-column-button"
+                href="mailto:aryanwanve15@gmail.com"
+              >
+                Start a project
+              </a>
             </div>
 
             <div className="footer-column">
@@ -350,6 +352,9 @@ export default function Home() {
                   </a>
                 ))}
               </div>
+              <a className="button button-ghost footer-button footer-column-button" href="#contact">
+                Get quote
+              </a>
             </div>
           </div>
         </div>
