@@ -40,6 +40,13 @@ const socialLinks = [
   { label: "YouTube", href: "https://www.youtube.com/@Onewayyyyyyy" },
 ];
 
+const footerLinks = [
+  { label: "Home", href: "#home" },
+  { label: "Featured work", href: "#hook" },
+  { label: "About", href: "#starter" },
+  { label: "Contact", href: "#contact" },
+];
+
 export default function Home() {
   const [formData, setFormData] = useState({
     name: "",
@@ -302,22 +309,46 @@ export default function Home() {
       </section>
 
       <footer className="site-footer" data-reveal>
-        <div>
-          <p className="footer-title">Aryan Wanve</p>
-          <p className="footer-copy">
-            Oneway visual work across film, photo, motion, and design.
-          </p>
-        </div>
-
-        <div className="footer-links" aria-label="Social links">
-          {socialLinks.map((link) => (
-            <a key={link.label} href={link.href} target="_blank" rel="noreferrer">
-              {link.label}
+        <div className="footer-shell">
+          <div className="footer-brand">
+            <p className="footer-title">Aryan Wanve</p>
+            <h2>Oneway is where visuals get their final form.</h2>
+            <p className="footer-copy">
+              Visual work across videography, photography, cinematography, edits,
+              motion graphics, color, and design.
+            </p>
+            <a className="button button-solid footer-button" href="mailto:aryanwanve15@gmail.com">
+              Start a project
             </a>
-          ))}
+          </div>
+
+          <div className="footer-column">
+            <p className="footer-label">Explore</p>
+            <div className="footer-stack">
+              {footerLinks.map((link) => (
+                <a key={link.label} href={link.href}>
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div className="footer-column">
+            <p className="footer-label">Across the web</p>
+            <div className="footer-stack" aria-label="Social links">
+              {socialLinks.map((link) => (
+                <a key={link.label} href={link.href} target="_blank" rel="noreferrer">
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
 
-        <p className="footer-copy">(c) 2026 Aryan Wanve. All rights reserved.</p>
+        <div className="footer-bottom">
+          <p className="footer-copy">aryanwanve15@gmail.com</p>
+          <p className="footer-copy">(c) 2026 Aryan Wanve. All rights reserved.</p>
+        </div>
       </footer>
     </main>
   );
