@@ -1,4 +1,6 @@
-export const portfolioGroups = [
+export const portfolioRootId = "1bJSaLDWR7MeMEyhUmC9o-HZWWd4ynlND";
+
+export const fallbackPortfolioGroups = [
   {
     genre: "AD",
     folderId: "1B0csOobo_QST5dTyQo415DC4JEUEXbe6",
