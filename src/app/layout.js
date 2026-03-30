@@ -1,4 +1,16 @@
+import { Cormorant_Garamond, Manrope } from "next/font/google";
 import "./globals.css";
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-manrope",
+});
+
+const cormorantGaramond = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-cormorant",
+});
 
 export const metadata = {
   title: "Aryan Wanve",
@@ -8,7 +20,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={`${manrope.variable} ${cormorantGaramond.variable}`}>
+        {children}
+      </body>
     </html>
   );
 }
