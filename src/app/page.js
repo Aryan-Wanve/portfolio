@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const featuredEdits = [
   {
@@ -46,6 +46,28 @@ export default function Home() {
     email: "",
     message: "",
   });
+
+  useEffect(() => {
+    const elements = document.querySelectorAll("[data-reveal]");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.18,
+        rootMargin: "0px 0px -8% 0px",
+      }
+    );
+
+    elements.forEach((element) => observer.observe(element));
+
+    return () => observer.disconnect();
+  }, []);
 
   const handleChange = ({ target }) => {
     const { name, value } = target;
@@ -116,8 +138,7 @@ export default function Home() {
       </section>
 
       <section className="hook-section" id="hook">
-        <div className="section-heading">
-          <p className="eyebrow">Hook</p>
+        <div className="section-heading" data-reveal>
           <h2>Visual work built to pull people in fast.</h2>
           <p>
             A front row for the edits, sequences, and visual energy that define
@@ -127,7 +148,7 @@ export default function Home() {
         </div>
 
         <div className="featured-grid">
-          <article className="featured-video-card">
+          <article className="featured-video-card" data-reveal>
             <video
               className="hook-video"
               src="/hero.mp4"
@@ -148,7 +169,12 @@ export default function Home() {
 
           <div className="edit-list">
             {featuredEdits.map((edit) => (
-              <article className="edit-card" key={edit.title}>
+              <article
+                className="edit-card"
+                key={edit.title}
+                data-reveal
+                style={{ "--reveal-delay": `${0.12 * (featuredEdits.indexOf(edit) + 1)}s` }}
+              >
                 <p className="edit-tag">{edit.tag}</p>
                 <h3>{edit.title}</h3>
                 <p>{edit.summary}</p>
@@ -159,13 +185,12 @@ export default function Home() {
       </section>
 
       <section className="starter-section" id="starter">
-        <div className="section-heading">
-          <p className="eyebrow">Starter</p>
+        <div className="section-heading" data-reveal>
           <h2>The eye, the craft, and the skills behind the work.</h2>
         </div>
 
         <div className="starter-grid">
-          <article className="info-panel">
+          <article className="info-panel" data-reveal style={{ "--reveal-delay": "0.08s" }}>
             <p className="panel-label">About me</p>
             <h3>I build visuals with pace, atmosphere, and intent.</h3>
             <p>
@@ -180,7 +205,7 @@ export default function Home() {
             </p>
           </article>
 
-          <article className="info-panel">
+          <article className="info-panel" data-reveal style={{ "--reveal-delay": "0.18s" }}>
             <p className="panel-label">Core skills</p>
             <div className="skill-cloud">
               {skills.map((skill) => (
@@ -191,7 +216,11 @@ export default function Home() {
             </div>
           </article>
 
-          <article className="info-panel accent-panel">
+          <article
+            className="info-panel accent-panel"
+            data-reveal
+            style={{ "--reveal-delay": "0.28s" }}
+          >
             <p className="panel-label">Quick info</p>
             <ul className="info-list">
               <li>Available for freelance work, visual direction, and collaborations.</li>
@@ -203,8 +232,7 @@ export default function Home() {
       </section>
 
       <section className="contact-section" id="contact">
-        <div className="section-heading">
-          <p className="eyebrow">Contact</p>
+        <div className="section-heading" data-reveal>
           <h2>Let&apos;s build something people feel on first watch.</h2>
           <p>
             If you have a project, concept, or visual direction in mind, send it
@@ -214,7 +242,7 @@ export default function Home() {
         </div>
 
         <div className="contact-grid">
-          <article className="contact-card">
+          <article className="contact-card" data-reveal style={{ "--reveal-delay": "0.1s" }}>
             <p className="panel-label">Let&apos;s work</p>
             <h3>Need Oneway on your next visual project?</h3>
             <p>
@@ -227,7 +255,12 @@ export default function Home() {
             </a>
           </article>
 
-          <form className="contact-form" onSubmit={handleSubmit}>
+          <form
+            className="contact-form"
+            onSubmit={handleSubmit}
+            data-reveal
+            style={{ "--reveal-delay": "0.2s" }}
+          >
             <label>
               <span>Name</span>
               <input
@@ -268,7 +301,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="site-footer">
+      <footer className="site-footer" data-reveal>
         <div>
           <p className="footer-title">Aryan Wanve</p>
           <p className="footer-copy">

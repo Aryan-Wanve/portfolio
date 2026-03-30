@@ -73,9 +73,8 @@ textarea {
 
 .hero-section {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  display: block;
+  margin-bottom: -1px;
 }
 
 .section-video {
@@ -92,9 +91,8 @@ textarea {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(3, 3, 5, 0.22) 0%, rgba(3, 3, 5, 0.4) 40%, rgba(6, 7, 10, 0.86) 100%),
+    linear-gradient(180deg, rgba(3, 3, 5, 0.22) 0%, rgba(3, 3, 5, 0.42) 42%, rgba(6, 7, 10, 0.96) 100%),
     radial-gradient(circle at 18% 18%, rgba(255, 138, 61, 0.18), transparent 30%);
-  animation: overlayPulse 7s ease-in-out infinite alternate;
 }
 
 .topbar,
@@ -108,6 +106,10 @@ textarea {
 }
 
 .topbar {
+  position: absolute;
+  top: 1.5rem;
+  left: clamp(1.25rem, 3vw, 3rem);
+  right: clamp(1.25rem, 3vw, 3rem);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -133,7 +135,7 @@ textarea {
 .topnav a,
 .footer-links a {
   color: var(--muted);
-  transition: color 180ms ease, transform 180ms ease;
+  transition: color 180ms ease, transform 180ms ease, opacity 180ms ease;
 }
 
 .topnav a:hover,
@@ -144,13 +146,14 @@ textarea {
 }
 
 .hero-content {
-  width: min(100%, 72rem);
-  padding: 0 0 10rem;
+  width: min(100%, 46rem);
+  min-height: 100vh;
+  padding: 6rem 0 4rem;
+  margin-inline: auto;
   text-align: center;
-  align-self: center;
-  transform: translateY(-5rem);
+  place-content: center;
+  place-items: center;
   display: grid;
-  justify-items: center;
   row-gap: 1.15rem;
 }
 
@@ -171,7 +174,7 @@ textarea {
   font-family: var(--font-display);
   font-weight: 600;
   letter-spacing: -0.04em;
-  line-height: 0.94;
+  line-height: 1.02;
   text-wrap: balance;
 }
 
@@ -179,7 +182,8 @@ textarea {
   max-width: none;
   width: max-content;
   margin-inline: auto;
-  font-size: clamp(2.65rem, 4vw, 4.2rem);
+  font-size: clamp(2.55rem, 3.75vw, 4rem);
+  padding-top: 0.08em;
 }
 
 .hero-content .eyebrow,
@@ -218,6 +222,23 @@ textarea {
   font-size: clamp(1.04rem, 1.6vw, 1.18rem);
   text-wrap: pretty;
   animation: riseFade 0.95s var(--ease-out-expo) 0.34s both;
+}
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(42px) scale(0.985);
+  filter: blur(8px);
+  transition:
+    opacity 850ms var(--ease-out-expo),
+    transform 850ms var(--ease-out-expo),
+    filter 850ms var(--ease-out-expo);
+  transition-delay: var(--reveal-delay, 0s);
+}
+
+[data-reveal].in-view {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
 }
 
 .hero-actions {
@@ -262,23 +283,31 @@ textarea {
 }
 
 .section-heading {
-  width: min(100%, 40rem);
+  width: min(100%, 72rem);
   margin-bottom: 2.5rem;
 }
 
 .section-heading h2 {
-  font-size: clamp(2.6rem, 6vw, 4.2rem);
-  max-width: 11ch;
+  font-size: clamp(2.1rem, 4vw, 3.2rem);
+  max-width: 16ch;
 }
 
 .section-heading p {
   margin: 1rem 0 0;
+  max-width: 52rem;
 }
 
 .hook-section,
 .starter-section,
 .contact-section {
   border-top: 1px solid var(--line);
+}
+
+.hook-section {
+  margin-top: -3rem;
+  padding-top: 5rem;
+  background:
+    linear-gradient(180deg, rgba(6, 7, 10, 0) 0, rgba(6, 7, 10, 0.94) 3rem, #06070a 6rem);
 }
 
 .featured-grid,
@@ -311,7 +340,6 @@ textarea {
 
 .featured-video-card {
   overflow: hidden;
-  animation: liftIn 0.95s var(--ease-out-expo) 0.18s both;
 }
 
 .hook-video {
@@ -353,18 +381,6 @@ textarea {
   gap: 1rem;
 }
 
-.edit-card:nth-child(1) {
-  animation: liftIn 0.85s var(--ease-out-expo) 0.24s both;
-}
-
-.edit-card:nth-child(2) {
-  animation: liftIn 0.85s var(--ease-out-expo) 0.34s both;
-}
-
-.edit-card:nth-child(3) {
-  animation: liftIn 0.85s var(--ease-out-expo) 0.44s both;
-}
-
 .starter-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
@@ -373,18 +389,6 @@ textarea {
   background:
     linear-gradient(145deg, rgba(255, 138, 61, 0.16), rgba(255, 138, 61, 0.04)),
     var(--panel-strong);
-}
-
-.starter-grid .info-panel:nth-child(1) {
-  animation: liftIn 0.9s var(--ease-out-expo) 0.2s both;
-}
-
-.starter-grid .info-panel:nth-child(2) {
-  animation: liftIn 0.9s var(--ease-out-expo) 0.32s both;
-}
-
-.starter-grid .info-panel:nth-child(3) {
-  animation: liftIn 0.9s var(--ease-out-expo) 0.44s both;
 }
 
 .skill-cloud {
@@ -425,14 +429,6 @@ textarea {
 .contact-form {
   display: grid;
   gap: 1rem;
-}
-
-.contact-card {
-  animation: liftIn 0.9s var(--ease-out-expo) 0.2s both;
-}
-
-.contact-form {
-  animation: liftIn 0.9s var(--ease-out-expo) 0.34s both;
 }
 
 .contact-form label {
@@ -510,6 +506,33 @@ textarea {
   letter-spacing: 0.02em;
 }
 
+.topnav a,
+.footer-links a,
+.contact-link {
+  position: relative;
+}
+
+.topnav a::after,
+.footer-links a::after,
+.contact-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.18rem;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 240ms var(--ease-out-expo);
+}
+
+.topnav a:hover::after,
+.footer-links a:hover::after,
+.contact-link:hover::after {
+  transform: scaleX(1);
+}
+
 .site-footer > :last-child {
   text-align: right;
 }
@@ -562,16 +585,6 @@ textarea {
   }
 }
 
-@keyframes overlayPulse {
-  from {
-    opacity: 0.9;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
 @media (max-width: 960px) {
   .featured-grid,
   .starter-grid,
@@ -595,15 +608,25 @@ textarea {
     padding-bottom: 4.5rem;
   }
 
+  .hook-section {
+    margin-top: -2.25rem;
+    padding-top: 4.25rem;
+  }
+
   .topbar {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
     flex-direction: column;
     align-items: flex-start;
   }
 
   .hero-content {
-    width: min(100%, 52rem);
-    padding: 1.75rem 0 6rem;
-    transform: translateY(-2.25rem);
+    width: min(100%, 42rem);
+    min-height: auto;
+    padding: 4rem 0 4rem;
+    margin-inline: auto;
   }
 
   .hero-content h1 {
@@ -630,5 +653,11 @@ textarea {
     animation: none !important;
     transition: none !important;
     scroll-behavior: auto !important;
+  }
+
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
   }
 }
