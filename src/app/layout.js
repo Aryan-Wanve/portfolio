@@ -1,8 +1,8 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Aryan Wanve | Oneway",
-  description: "Portfolio landing page for Aryan Wanve and the Oneway creative identity",
+  title: "Aryan Wanve",
+  description: "Portfolio landing page for Aryan Wanve",
 };
 
 export default function RootLayout({ children }) {
