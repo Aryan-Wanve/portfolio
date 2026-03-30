@@ -91,7 +91,7 @@ textarea {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(3, 3, 5, 0.22) 0%, rgba(3, 3, 5, 0.42) 42%, rgba(6, 7, 10, 0.96) 100%),
+    linear-gradient(0deg, rgba(6, 7, 10, 0.98) 0%, rgba(6, 7, 10, 0.78) 16%, rgba(6, 7, 10, 0.28) 34%, rgba(6, 7, 10, 0) 52%),
     radial-gradient(circle at 18% 18%, rgba(255, 138, 61, 0.18), transparent 30%);
 }
 
@@ -300,7 +300,6 @@ textarea {
 .hook-section,
 .starter-section,
 .contact-section {
-  border-top: 1px solid var(--line);
   background: var(--background);
 }
 
@@ -464,7 +463,7 @@ textarea {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.5rem;
   padding: 2rem clamp(1.25rem, 3vw, 3rem) 3rem;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .featured-video-card:hover,
