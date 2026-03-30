@@ -21,6 +21,7 @@ function buildThumbnailUrl(id) {
 export default function WorkPage() {
   const [activeFolder, setActiveFolder] = useState(portfolioGroups[0]?.genre ?? null);
   const [activeVideo, setActiveVideo] = useState(null);
+  const [videoRatios, setVideoRatios] = useState({});
   const totalVideos = useMemo(
     () => portfolioGroups.reduce((sum, group) => sum + group.videos.length, 0),
     []
@@ -46,6 +47,25 @@ export default function WorkPage() {
 
   const selectedFolder =
     portfolioGroups.find((group) => group.genre === activeFolder) ?? portfolioGroups[0];
+
+  const handleThumbnailLoad = (videoId, event) => {
+    const { naturalWidth, naturalHeight } = event.currentTarget;
+
+    if (!naturalWidth || !naturalHeight) {
+      return;
+    }
+
+    const ratio = naturalWidth / naturalHeight;
+
+    setVideoRatios((current) => {
+      const previous = current[videoId];
+      if (previous && Math.abs(previous - ratio) < 0.01) {
+        return current;
+      }
+
+      return { ...current, [videoId]: ratio };
+    });
+  };
 
   return (
     <>
@@ -148,11 +168,17 @@ export default function WorkPage() {
                   }
                   style={{ "--card-delay": `${index * 90}ms` }}
                 >
-                  <div className="drive-video-thumb-wrap">
+                  <div
+                    className="drive-video-thumb-wrap"
+                    style={{
+                      "--thumb-aspect": videoRatios[video.id] ?? 16 / 10,
+                    }}
+                  >
                     <img
                       className="drive-video-thumb"
                       src={buildThumbnailUrl(video.id)}
                       alt={`${formatTitle(video.title)} thumbnail`}
+                      onLoad={(event) => handleThumbnailLoad(video.id, event)}
                     />
                     <span className="drive-video-play">Play</span>
                   </div>

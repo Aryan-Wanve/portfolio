@@ -1546,12 +1546,14 @@ textarea {
   position: relative;
   overflow: hidden;
   border-radius: 1rem;
+  aspect-ratio: var(--thumb-aspect, 16 / 10);
+  background: rgba(255, 255, 255, 0.035);
 }
 
 .drive-video-thumb {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 10;
+  height: 100%;
   object-fit: cover;
   background: rgba(255, 255, 255, 0.04);
   transition: transform 420ms var(--ease-out-expo), filter 220ms ease;
