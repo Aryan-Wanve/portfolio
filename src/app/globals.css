@@ -468,25 +468,32 @@ textarea {
 
 .footer-shell {
   display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(12rem, 0.7fr) minmax(12rem, 0.8fr);
-  gap: 2rem;
-  padding: 2.25rem 0;
+  grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr);
+  gap: 3rem;
+  padding: 2.5rem 0 2rem;
 }
 
 .footer-brand {
-  max-width: 36rem;
+  max-width: 32rem;
 }
 
 .footer-brand h2 {
-  margin: 0;
+  margin: 0 0 0.9rem;
   font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 3.4rem);
-  line-height: 0.96;
+  font-size: clamp(1.65rem, 3vw, 2.45rem);
+  line-height: 1.02;
   letter-spacing: -0.04em;
 }
 
 .footer-button {
   margin-top: 1.4rem;
+}
+
+.footer-nav-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  align-content: start;
 }
 
 .footer-label {
@@ -511,6 +518,7 @@ textarea {
 .footer-stack a {
   color: rgba(246, 240, 232, 0.86);
   font-size: 1rem;
+  width: fit-content;
   transition: color 180ms ease, transform 180ms ease;
 }
 
@@ -632,6 +640,10 @@ textarea {
     grid-template-columns: 1fr;
   }
 
+  .footer-nav-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
   .footer-bottom {
     flex-direction: column;
     align-items: flex-start;
@@ -676,6 +688,11 @@ textarea {
 
   .button {
     width: 100%;
+  }
+
+  .footer-nav-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 }
 

@@ -322,25 +322,27 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="footer-column">
-            <p className="footer-label">Explore</p>
-            <div className="footer-stack">
-              {footerLinks.map((link) => (
-                <a key={link.label} href={link.href}>
-                  {link.label}
-                </a>
-              ))}
+          <div className="footer-nav-grid">
+            <div className="footer-column">
+              <p className="footer-label">Explore</p>
+              <div className="footer-stack">
+                {footerLinks.map((link) => (
+                  <a key={link.label} href={link.href}>
+                    {link.label}
+                  </a>
+                ))}
+              </div>
             </div>
-          </div>
 
-          <div className="footer-column">
-            <p className="footer-label">Across the web</p>
-            <div className="footer-stack" aria-label="Social links">
-              {socialLinks.map((link) => (
-                <a key={link.label} href={link.href} target="_blank" rel="noreferrer">
-                  {link.label}
-                </a>
-              ))}
+            <div className="footer-column">
+              <p className="footer-label">Across the web</p>
+              <div className="footer-stack" aria-label="Social links">
+                {socialLinks.map((link) => (
+                  <a key={link.label} href={link.href} target="_blank" rel="noreferrer">
+                    {link.label}
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </div>
