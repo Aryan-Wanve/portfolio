@@ -344,8 +344,8 @@ textarea {
     "wide wide wide right-tall";
   column-gap: 2.2rem;
   row-gap: 1.9rem;
-  width: min(100%, 78rem);
-  max-width: 78rem;
+  width: min(100%, 92rem);
+  max-width: 92rem;
   margin-inline: auto;
   align-items: stretch;
 }
