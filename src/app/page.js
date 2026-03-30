@@ -155,38 +155,67 @@ export default function Home() {
         </div>
 
         <div className="featured-grid">
-          <article className="featured-video-card" data-reveal>
-            <video
-              className="hook-video"
-              src="/hero.mp4"
-              autoPlay
-              muted
-              loop
-              playsInline
-            />
-            <div className="featured-video-copy">
-              <p className="eyebrow">Featured edit</p>
-              <h3>Signature reel placeholder</h3>
-              <p>
-                This is where my strongest work can sit later, holding
-                the section with motion, mood, and instant visual pull.
-              </p>
-            </div>
-          </article>
-
-          <div className="edit-list">
-            {featuredEdits.map((edit) => (
+          <div className="vertical-showcase">
+            {featuredEdits.map((edit, index) => (
               <article
-                className="edit-card"
+                className="vertical-video-card"
                 key={edit.title}
                 data-reveal
-                style={{ "--reveal-delay": `${0.12 * (featuredEdits.indexOf(edit) + 1)}s` }}
+                style={{ "--reveal-delay": `${0.12 * (index + 1)}s` }}
               >
-                <p className="edit-tag">{edit.tag}</p>
-                <h3>{edit.title}</h3>
-                <p>{edit.summary}</p>
+                <video
+                  className="vertical-video"
+                  src="/hero.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                />
+                <div className="vertical-video-copy">
+                  <p className="edit-tag">{edit.tag}</p>
+                  <h3>{edit.title}</h3>
+                  <p>{edit.summary}</p>
+                </div>
               </article>
             ))}
+
+            <article className="featured-video-card horizontal-feature" data-reveal>
+              <video
+                className="hook-video"
+                src="/hero.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+              />
+              <div className="featured-video-copy">
+                <p className="eyebrow">Horizontal feature</p>
+                <h3>Wide-format showcase placeholder</h3>
+                <p>
+                  Keep one cinematic horizontal piece here for trailers,
+                  aftermovies, or broader visual storytelling moments.
+                </p>
+              </div>
+            </article>
+
+            <article className="vertical-video-card vertical-video-card-tall" data-reveal>
+              <video
+                className="vertical-video"
+                src="/hero.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+              />
+              <div className="vertical-video-copy">
+                <p className="edit-tag">Hero vertical feature</p>
+                <h3>Flagship reel placeholder</h3>
+                <p>
+                  Use this larger vertical slot for the strongest reel you want
+                  people to notice first.
+                </p>
+              </div>
+            </article>
           </div>
         </div>
       </section>
