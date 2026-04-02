@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 
@@ -84,12 +85,12 @@ export default function WorkPageClient({ groups, portfolioRootId, isDynamic }) {
         <section className="work-drive-hero">
           <p className="eyebrow">Work</p>
           <h1>
-            <span className="work-hero-line">A portfolio folder view,</span>
-            <span className="work-hero-line">rebuilt to feel premium.</span>
+            <span className="work-hero-line">Visual stories,</span>
+            <span className="work-hero-line">That don’t get skipped.</span>
           </h1>
           <p className="work-hero-copy">
-            Open a genre like a beautiful motion-first Drive. Each folder reveals the work
-            inside it, and every clip can expand into a playable preview with audio.
+            Ads, brands, and cinematic edits designed to hold attention and convert.
+            Scroll through the work, every frame has intent.
           </p>
 
           <div className="work-drive-pills">
@@ -171,10 +172,12 @@ export default function WorkPageClient({ groups, portfolioRootId, isDynamic }) {
                         className="drive-video-thumb-wrap"
                         style={{ "--thumb-aspect": videoRatios[video.id] ?? 16 / 10 }}
                       >
-                        <img
+                        <Image
                           className="drive-video-thumb"
                           src={buildThumbnailUrl(video.id)}
                           alt={`${formatTitle(video.title)} thumbnail`}
+                          fill
+                          sizes="(max-width: 960px) 100vw, 40vw"
                           onLoad={(event) => handleThumbnailLoad(video.id, event)}
                         />
                         <span className="drive-video-play">Play</span>
