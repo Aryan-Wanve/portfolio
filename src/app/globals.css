@@ -1404,6 +1404,8 @@ textarea {
 
 .drive-sidebar,
 .drive-stage {
+  display: flex;
+  flex-direction: column;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 2rem;
   background:
@@ -1417,6 +1419,8 @@ textarea {
   position: sticky;
   top: 1.2rem;
   padding: 1.2rem;
+  height: min(44rem, calc(100vh - 2.4rem));
+  overflow: hidden;
 }
 
 .drive-sidebar-heading {
@@ -1435,6 +1439,11 @@ textarea {
 .drive-folder-list {
   display: grid;
   gap: 0.8rem;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-right: 0.25rem;
 }
 
 .drive-folder-card {
@@ -1505,22 +1514,56 @@ textarea {
 }
 
 .drive-stage {
-  padding: 1.4rem;
-  min-height: 38rem;
+  padding: 0;
+  height: min(44rem, calc(100vh - 2.4rem));
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 .drive-stage-header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
   display: flex;
   justify-content: space-between;
   align-items: end;
   gap: 1rem;
-  margin-bottom: 1.4rem;
+  margin-bottom: 0;
+  padding: 1.4rem 1.4rem 1rem;
+  background:
+    linear-gradient(180deg, rgba(10, 13, 18, 0.985) 0%, rgba(10, 13, 18, 0.94) 82%, rgba(10, 13, 18, 0.78) 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .drive-video-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
+  padding: 1.2rem 1.4rem 1.4rem;
+}
+
+.drive-folder-list::-webkit-scrollbar,
+.drive-stage::-webkit-scrollbar {
+  width: 10px;
+}
+
+.drive-folder-list::-webkit-scrollbar-track,
+.drive-stage::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.drive-folder-list::-webkit-scrollbar-thumb,
+.drive-stage::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  background-clip: padding-box;
+}
+
+.drive-folder-list,
+.drive-stage {
+  scrollbar-color: rgba(255, 255, 255, 0.14) transparent;
 }
 
 .drive-video-card {
@@ -1699,6 +1742,17 @@ textarea {
   .drive-sidebar {
     position: relative;
     top: auto;
+    height: auto;
+  }
+
+  .drive-stage {
+    height: auto;
+    max-height: none;
+  }
+
+  .drive-folder-list,
+  .drive-stage {
+    overflow: visible;
   }
 }
 
