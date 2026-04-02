@@ -169,65 +169,69 @@ export default function WorkPageClient({ groups, portfolioRootId, isDynamic }) {
                   </a>
                 </div>
 
-                <div className="drive-video-grid">
-                  {selectedFolder.videos.map((video, index) => (
-                    (() => {
-                      const thumbnailCandidates = buildThumbnailCandidates(video.id);
-                      const currentAttempt = thumbnailAttempts[video.id] ?? 0;
-                      const thumbnailSrc = thumbnailCandidates[currentAttempt];
-                      const hasThumbnail = Boolean(thumbnailSrc);
+                <div className="drive-stage-scroll">
+                  <div className="drive-video-grid">
+                    {selectedFolder.videos.map((video, index) => (
+                      (() => {
+                        const thumbnailCandidates = buildThumbnailCandidates(video.id);
+                        const currentAttempt = thumbnailAttempts[video.id] ?? 0;
+                        const thumbnailSrc = thumbnailCandidates[currentAttempt];
+                        const hasThumbnail = Boolean(thumbnailSrc);
 
-                      return (
-                        <button
-                          className="drive-video-card"
-                          key={video.id}
-                          type="button"
-                          onClick={() =>
-                            setActiveVideo({
-                              ...video,
-                              genre: selectedFolder.genre,
-                              folderId: selectedFolder.folderId,
-                            })
-                          }
-                          style={{ "--card-delay": `${index * 90}ms` }}
-                        >
-                          <div
-                            className={`drive-video-thumb-wrap ${!hasThumbnail ? "drive-video-thumb-fallback" : ""}`}
-                            style={{ "--thumb-aspect": videoRatios[video.id] ?? 16 / 10 }}
+                        return (
+                          <button
+                            className="drive-video-card"
+                            key={video.id}
+                            type="button"
+                            onClick={() =>
+                              setActiveVideo({
+                                ...video,
+                                genre: selectedFolder.genre,
+                                folderId: selectedFolder.folderId,
+                              })
+                            }
+                            style={{ "--card-delay": `${index * 90}ms` }}
                           >
-                            {hasThumbnail ? (
-                              <Image
-                                className="drive-video-thumb"
-                                src={thumbnailSrc}
-                                alt={`${formatTitle(video.title)} thumbnail`}
-                                fill
-                                sizes="(max-width: 960px) 100vw, 40vw"
-                                unoptimized
-                                onLoad={(event) => handleThumbnailLoad(video.id, event)}
-                                onError={() => handleThumbnailError(video.id)}
-                              />
-                            ) : (
-                              <div className="drive-video-thumb-placeholder" aria-hidden="true">
-                                <span>{selectedFolder.genre}</span>
-                              </div>
-                            )}
-                            <span className="drive-video-play">Play</span>
-                          </div>
-                          <div className="drive-video-copy">
-                            <span className="drive-video-tag">{selectedFolder.genre}</span>
-                            <strong>{formatTitle(video.title)}</strong>
-                          </div>
-                        </button>
-                      );
-                    })()
-                  ))}
+                            <div
+                              className={`drive-video-thumb-wrap ${!hasThumbnail ? "drive-video-thumb-fallback" : ""}`}
+                              style={{ "--thumb-aspect": videoRatios[video.id] ?? 16 / 10 }}
+                            >
+                              {hasThumbnail ? (
+                                <Image
+                                  className="drive-video-thumb"
+                                  src={thumbnailSrc}
+                                  alt={`${formatTitle(video.title)} thumbnail`}
+                                  fill
+                                  sizes="(max-width: 960px) 100vw, 40vw"
+                                  unoptimized
+                                  onLoad={(event) => handleThumbnailLoad(video.id, event)}
+                                  onError={() => handleThumbnailError(video.id)}
+                                />
+                              ) : (
+                                <div className="drive-video-thumb-placeholder" aria-hidden="true">
+                                  <span>{selectedFolder.genre}</span>
+                                </div>
+                              )}
+                              <span className="drive-video-play">Play</span>
+                            </div>
+                            <div className="drive-video-copy">
+                              <span className="drive-video-tag">{selectedFolder.genre}</span>
+                              <strong>{formatTitle(video.title)}</strong>
+                            </div>
+                          </button>
+                        );
+                      })()
+                    ))}
+                  </div>
                 </div>
               </>
             ) : (
-              <div className="drive-empty-state">
-                <p className="eyebrow">No content</p>
-                <h2>Nothing found yet.</h2>
-                <p>Add public video files to the Drive folders and this page will pick them up.</p>
+              <div className="drive-stage-scroll">
+                <div className="drive-empty-state">
+                  <p className="eyebrow">No content</p>
+                  <h2>Nothing found yet.</h2>
+                  <p>Add public video files to the Drive folders and this page will pick them up.</p>
+                </div>
               </div>
             )}
           </section>

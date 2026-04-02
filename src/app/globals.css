@@ -1517,8 +1517,7 @@ textarea {
   padding: 0;
   height: min(44rem, calc(100vh - 2.4rem));
   min-height: 0;
-  overflow-y: auto;
-  overscroll-behavior: contain;
+  overflow: hidden;
 }
 
 .drive-stage-header {
@@ -1543,18 +1542,26 @@ textarea {
   padding: 1.2rem 1.4rem 1.4rem;
 }
 
+.drive-stage-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-right: 0.35rem;
+}
+
 .drive-folder-list::-webkit-scrollbar,
-.drive-stage::-webkit-scrollbar {
+.drive-stage-scroll::-webkit-scrollbar {
   width: 10px;
 }
 
 .drive-folder-list::-webkit-scrollbar-track,
-.drive-stage::-webkit-scrollbar-track {
+.drive-stage-scroll::-webkit-scrollbar-track {
   background: transparent;
 }
 
 .drive-folder-list::-webkit-scrollbar-thumb,
-.drive-stage::-webkit-scrollbar-thumb {
+.drive-stage-scroll::-webkit-scrollbar-thumb {
   border: 2px solid transparent;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.14);
@@ -1562,7 +1569,7 @@ textarea {
 }
 
 .drive-folder-list,
-.drive-stage {
+.drive-stage-scroll {
   scrollbar-color: rgba(255, 255, 255, 0.14) transparent;
 }
 
@@ -1751,7 +1758,7 @@ textarea {
   }
 
   .drive-folder-list,
-  .drive-stage {
+  .drive-stage-scroll {
     overflow: visible;
   }
 }
