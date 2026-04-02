@@ -4,6 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 
+const socialLinks = [
+  { label: "Instagram", href: "https://www.instagram.com/aryanwanve/" },
+  { label: "Photo page", href: "https://www.instagram.com/from_aryan/" },
+  { label: "Video page", href: "https://www.instagram.com/cine_chasers/" },
+  { label: "YouTube", href: "https://www.youtube.com/@Onewayyyyyyy" },
+];
+
 function formatTitle(title) {
   return title.replace(/\.(mp4|mov)$/i, "").replace(/^Copy of\s+/i, "");
 }
@@ -236,6 +243,41 @@ export default function WorkPageClient({ groups, portfolioRootId, isDynamic }) {
             )}
           </section>
         </section>
+
+        <footer className="work-mini-footer">
+          <div className="work-mini-footer-shell">
+            <div className="work-mini-footer-main">
+              <div className="work-mini-footer-copy">
+                <p className="footer-label">Back to main site</p>
+                <h2>Want the full intro first?</h2>
+                <p className="footer-copy">
+                  Head back to the landing page for the broader story, then return here for
+                  the live portfolio browser.
+                </p>
+              </div>
+
+              <div className="work-mini-footer-actions">
+                <Link className="button button-solid" href="/">
+                  Go back home
+                </Link>
+                <a className="button button-ghost" href="mailto:aryanwanve15@gmail.com">
+                  Start a project
+                </a>
+              </div>
+            </div>
+
+            <div className="work-mini-footer-bottom">
+              <div className="work-mini-footer-links" aria-label="Social links">
+                {socialLinks.map((link) => (
+                  <a key={link.label} href={link.href} target="_blank" rel="noreferrer">
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+              <p className="footer-copy">(c) 2026 Aryan Wanve. All rights reserved.</p>
+            </div>
+          </div>
+        </footer>
       </main>
 
       {activeVideo ? (
