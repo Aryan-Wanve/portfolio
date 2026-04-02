@@ -830,7 +830,8 @@ textarea {
   position: relative;
   min-height: 100vh;
   overflow: clip;
-  padding: 1.5rem clamp(1.25rem, 3vw, 3rem) 6rem;
+  --work-page-gutter: clamp(1.25rem, 3vw, 3rem);
+  padding: 1.5rem var(--work-page-gutter) 6rem;
   background:
     radial-gradient(circle at 15% 20%, rgba(255, 138, 61, 0.18), transparent 20%),
     radial-gradient(circle at 84% 22%, rgba(89, 208, 255, 0.16), transparent 18%),
