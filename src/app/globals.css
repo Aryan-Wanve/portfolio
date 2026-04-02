@@ -1531,7 +1531,8 @@ textarea {
   margin-bottom: 0;
   padding: 1.4rem 1.4rem 1rem;
   background:
-    linear-gradient(180deg, rgba(10, 13, 18, 0.985) 0%, rgba(10, 13, 18, 0.94) 82%, rgba(10, 13, 18, 0.78) 100%);
+    linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)),
+    rgba(10, 13, 18, 0.78);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
