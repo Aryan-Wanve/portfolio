@@ -16,10 +16,19 @@ function buildThumbnailUrl(id) {
   return `https://drive.google.com/thumbnail?id=${id}&sz=w1200`;
 }
 
+function buildThumbnailCandidates(id) {
+  return [
+    `https://drive.google.com/thumbnail?id=${id}&sz=w1200`,
+    `https://drive.google.com/thumbnail?id=${id}&sz=w800`,
+    `https://drive.google.com/thumbnail?id=${id}&sz=w600`,
+  ];
+}
+
 export default function WorkPageClient({ groups, portfolioRootId, isDynamic }) {
   const [activeFolder, setActiveFolder] = useState(groups[0]?.genre ?? null);
   const [activeVideo, setActiveVideo] = useState(null);
   const [videoRatios, setVideoRatios] = useState({});
+  const [thumbnailAttempts, setThumbnailAttempts] = useState({});
   const totalVideos = useMemo(
     () => groups.reduce((sum, group) => sum + group.videos.length, 0),
     [groups]
@@ -61,6 +70,13 @@ export default function WorkPageClient({ groups, portfolioRootId, isDynamic }) {
       }
 
       return { ...current, [videoId]: ratio };
+    });
+  };
+
+  const handleThumbnailError = (videoId) => {
+    setThumbnailAttempts((current) => {
+      const nextAttempt = (current[videoId] ?? 0) + 1;
+      return { ...current, [videoId]: nextAttempt };
     });
   };
 
@@ -155,38 +171,55 @@ export default function WorkPageClient({ groups, portfolioRootId, isDynamic }) {
 
                 <div className="drive-video-grid">
                   {selectedFolder.videos.map((video, index) => (
-                    <button
-                      className="drive-video-card"
-                      key={video.id}
-                      type="button"
-                      onClick={() =>
-                        setActiveVideo({
-                          ...video,
-                          genre: selectedFolder.genre,
-                          folderId: selectedFolder.folderId,
-                        })
-                      }
-                      style={{ "--card-delay": `${index * 90}ms` }}
-                    >
-                      <div
-                        className="drive-video-thumb-wrap"
-                        style={{ "--thumb-aspect": videoRatios[video.id] ?? 16 / 10 }}
-                      >
-                        <Image
-                          className="drive-video-thumb"
-                          src={buildThumbnailUrl(video.id)}
-                          alt={`${formatTitle(video.title)} thumbnail`}
-                          fill
-                          sizes="(max-width: 960px) 100vw, 40vw"
-                          onLoad={(event) => handleThumbnailLoad(video.id, event)}
-                        />
-                        <span className="drive-video-play">Play</span>
-                      </div>
-                      <div className="drive-video-copy">
-                        <span className="drive-video-tag">{selectedFolder.genre}</span>
-                        <strong>{formatTitle(video.title)}</strong>
-                      </div>
-                    </button>
+                    (() => {
+                      const thumbnailCandidates = buildThumbnailCandidates(video.id);
+                      const currentAttempt = thumbnailAttempts[video.id] ?? 0;
+                      const thumbnailSrc = thumbnailCandidates[currentAttempt];
+                      const hasThumbnail = Boolean(thumbnailSrc);
+
+                      return (
+                        <button
+                          className="drive-video-card"
+                          key={video.id}
+                          type="button"
+                          onClick={() =>
+                            setActiveVideo({
+                              ...video,
+                              genre: selectedFolder.genre,
+                              folderId: selectedFolder.folderId,
+                            })
+                          }
+                          style={{ "--card-delay": `${index * 90}ms` }}
+                        >
+                          <div
+                            className={`drive-video-thumb-wrap ${!hasThumbnail ? "drive-video-thumb-fallback" : ""}`}
+                            style={{ "--thumb-aspect": videoRatios[video.id] ?? 16 / 10 }}
+                          >
+                            {hasThumbnail ? (
+                              <Image
+                                className="drive-video-thumb"
+                                src={thumbnailSrc}
+                                alt={`${formatTitle(video.title)} thumbnail`}
+                                fill
+                                sizes="(max-width: 960px) 100vw, 40vw"
+                                unoptimized
+                                onLoad={(event) => handleThumbnailLoad(video.id, event)}
+                                onError={() => handleThumbnailError(video.id)}
+                              />
+                            ) : (
+                              <div className="drive-video-thumb-placeholder" aria-hidden="true">
+                                <span>{selectedFolder.genre}</span>
+                              </div>
+                            )}
+                            <span className="drive-video-play">Play</span>
+                          </div>
+                          <div className="drive-video-copy">
+                            <span className="drive-video-tag">{selectedFolder.genre}</span>
+                            <strong>{formatTitle(video.title)}</strong>
+                          </div>
+                        </button>
+                      );
+                    })()
                   ))}
                 </div>
               </>

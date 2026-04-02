@@ -1558,6 +1558,13 @@ textarea {
   background: rgba(255, 255, 255, 0.035);
 }
 
+.drive-video-thumb-fallback {
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255, 209, 102, 0.14), transparent 28%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)),
+    rgba(9, 12, 17, 0.9);
+}
+
 .drive-video-thumb {
   display: block;
   width: 100%;
@@ -1565,6 +1572,25 @@ textarea {
   object-fit: cover;
   background: rgba(255, 255, 255, 0.04);
   transition: transform 420ms var(--ease-out-expo), filter 220ms ease;
+}
+
+.drive-video-thumb-placeholder {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.drive-video-thumb-placeholder span {
+  padding: 0.5rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(246, 240, 232, 0.78);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
 }
 
 .drive-video-card:hover .drive-video-thumb {
