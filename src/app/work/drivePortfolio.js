@@ -20,7 +20,7 @@ function decodeDriveText(value) {
 
 async function fetchFolderHtml(folderId) {
   const response = await fetch(`${DRIVE_BASE_URL}/${folderId}`, {
-    cache: "no-store",
+    next: { revalidate: 3600 },
   });
 
   if (!response.ok) {
@@ -42,7 +42,7 @@ async function fetchDriveApiList({ q, fields, orderBy = "name_natural" }) {
   });
 
   const response = await fetch(`${DRIVE_API_BASE_URL}?${params.toString()}`, {
-    cache: "no-store",
+    next: { revalidate: 3600 },
   });
 
   if (!response.ok) {

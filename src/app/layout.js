@@ -1,4 +1,5 @@
 import { Cormorant_Garamond, Manrope } from "next/font/google";
+import ServiceWorkerRegistration from "../components/ServiceWorkerRegistration";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${manrope.variable} ${cormorantGaramond.variable}`}>
+        <ServiceWorkerRegistration />
         {children}
       </body>
     </html>
