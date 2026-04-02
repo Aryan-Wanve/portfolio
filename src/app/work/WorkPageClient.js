@@ -83,7 +83,10 @@ export default function WorkPageClient({ groups, portfolioRootId, isDynamic }) {
 
         <section className="work-drive-hero">
           <p className="eyebrow">Work</p>
-          <h1>A portfolio folder view, rebuilt to feel premium.</h1>
+          <h1>
+            <span className="work-hero-line">A portfolio folder view,</span>
+            <span className="work-hero-line">rebuilt to feel premium.</span>
+          </h1>
           <p className="work-hero-copy">
             Open a genre like a beautiful motion-first Drive. Each folder reveals the work
             inside it, and every clip can expand into a playable preview with audio.
