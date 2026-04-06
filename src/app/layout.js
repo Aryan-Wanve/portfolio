@@ -17,9 +17,9 @@ export const metadata = {
   title: "Aryan Wanve",
   description: "Portfolio landing page for Aryan Wanve",
   icons: {
-    icon: "/mono.png",
-    shortcut: "/mono.png",
-    apple: "/mono.png",
+    icon: "/mono-icon.png",
+    shortcut: "/mono-icon.png",
+    apple: "/mono-icon.png",
   },
 };
 
