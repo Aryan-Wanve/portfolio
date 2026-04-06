@@ -16,6 +16,11 @@ const cormorantGaramond = Cormorant_Garamond({
 export const metadata = {
   title: "Aryan Wanve",
   description: "Portfolio landing page for Aryan Wanve",
+  icons: {
+    icon: "/mono.png",
+    shortcut: "/mono.png",
+    apple: "/mono.png",
+  },
 };
 
 export default function RootLayout({ children }) {
