@@ -31,6 +31,26 @@ function buildThumbnailCandidates(id) {
   ];
 }
 
+function getBentoVariant(index, ratio) {
+  if (ratio && ratio < 0.82) {
+    return "tall";
+  }
+
+  if (ratio && ratio > 1.55) {
+    return index % 5 === 0 ? "hero" : "wide";
+  }
+
+  if (index % 7 === 0) {
+    return "hero";
+  }
+
+  if (index % 3 === 0) {
+    return "wide";
+  }
+
+  return "standard";
+}
+
 export default function WorkPageClient({ groups, portfolioRootId, isDynamic }) {
   const [activeFolder, setActiveFolder] = useState(groups[0]?.genre ?? null);
   const [activeVideo, setActiveVideo] = useState(null);
@@ -184,10 +204,12 @@ export default function WorkPageClient({ groups, portfolioRootId, isDynamic }) {
                         const currentAttempt = thumbnailAttempts[video.id] ?? 0;
                         const thumbnailSrc = thumbnailCandidates[currentAttempt];
                         const hasThumbnail = Boolean(thumbnailSrc);
+                        const ratio = videoRatios[video.id];
+                        const bentoVariant = getBentoVariant(index, ratio);
 
                         return (
                           <button
-                            className="drive-video-card"
+                            className={`drive-video-card drive-video-card-${bentoVariant}`}
                             key={video.id}
                             type="button"
                             onClick={() =>
@@ -201,7 +223,7 @@ export default function WorkPageClient({ groups, portfolioRootId, isDynamic }) {
                           >
                             <div
                               className={`drive-video-thumb-wrap ${!hasThumbnail ? "drive-video-thumb-fallback" : ""}`}
-                              style={{ "--thumb-aspect": videoRatios[video.id] ?? 16 / 10 }}
+                              style={{ "--thumb-aspect": ratio ?? 16 / 10 }}
                             >
                               {hasThumbnail ? (
                                 <Image
