@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 
@@ -226,13 +225,10 @@ export default function WorkPageClient({ groups, portfolioRootId, isDynamic }) {
                               style={{ "--thumb-aspect": ratio ?? 16 / 10 }}
                             >
                               {hasThumbnail ? (
-                                <Image
+                                <img
                                   className="drive-video-thumb"
                                   src={thumbnailSrc}
                                   alt={`${formatTitle(video.title)} thumbnail`}
-                                  fill
-                                  sizes="(max-width: 960px) 100vw, 40vw"
-                                  unoptimized
                                   onLoad={(event) => handleThumbnailLoad(video.id, event)}
                                   onError={() => handleThumbnailError(video.id)}
                                 />
