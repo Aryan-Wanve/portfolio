@@ -112,8 +112,8 @@ export default function Home() {
             <h2>Visual work built to pull people in fast.</h2>
             <p>
               A front row for the edits, sequences, and visual energy that define
-              my style. Your current background video is standing in until
-              the final showcase reels are ready.
+              my style across events, brands, reels, interiors, and creator-led
+              storytelling.
             </p>
           </div>
 

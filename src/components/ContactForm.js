@@ -47,6 +47,9 @@ export default function ContactForm() {
           placeholder="Your name"
           value={formData.name}
           onChange={handleChange}
+          autoComplete="name"
+          maxLength="80"
+          required
         />
       </label>
 
@@ -58,6 +61,9 @@ export default function ContactForm() {
           placeholder="you@example.com"
           value={formData.email}
           onChange={handleChange}
+          autoComplete="email"
+          maxLength="120"
+          required
         />
       </label>
 
@@ -69,6 +75,8 @@ export default function ContactForm() {
           placeholder="Tell me about your project, vibe, and deadline."
           value={formData.message}
           onChange={handleChange}
+          maxLength="1200"
+          required
         />
       </label>
 

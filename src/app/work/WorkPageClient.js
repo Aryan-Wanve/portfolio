@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import Link from "next/link";
@@ -128,7 +129,7 @@ export default function WorkPageClient({ groups, portfolioRootId, isDynamic }) {
           <p className="eyebrow">Work</p>
           <h1>
             <span className="work-hero-line">Visual stories,</span>
-            <span className="work-hero-line">That don’t get skipped.</span>
+            <span className="work-hero-line">That don&apos;t get skipped.</span>
           </h1>
           <p className="work-hero-copy">
             Ads, brands, and cinematic edits designed to hold attention and convert.

@@ -1,5 +1,5 @@
-const STATIC_CACHE = "portfolio-static-v1";
-const PAGE_CACHE = "portfolio-pages-v1";
+const STATIC_CACHE = "portfolio-static-v2";
+const PAGE_CACHE = "portfolio-pages-v2";
 
 self.addEventListener("install", (event) => {
   event.waitUntil(self.skipWaiting());
@@ -19,19 +19,22 @@ self.addEventListener("activate", (event) => {
   );
 });
 
-async function cacheFirst(request) {
+async function staleWhileRevalidate(request) {
   const cache = await caches.open(STATIC_CACHE);
   const cached = await cache.match(request);
+  const networkFetch = fetch(request).then((response) => {
+    if (response.ok) {
+      cache.put(request, response.clone());
+    }
+
+    return response;
+  });
 
   if (cached) {
     return cached;
   }
 
-  const response = await fetch(request);
-  if (response.ok) {
-    cache.put(request, response.clone());
-  }
-  return response;
+  return networkFetch;
 }
 
 async function networkFirst(request) {
@@ -63,24 +66,21 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
+  if (request.headers.has("range")) {
+    return;
+  }
+
   if (request.mode === "navigate") {
     event.respondWith(networkFirst(request));
     return;
   }
 
-  const staticDestinations = new Set([
-    "style",
-    "script",
-    "font",
-    "image",
-    "video",
-    "audio",
-  ]);
+  const staticDestinations = new Set(["style", "script", "font", "image"]);
 
   if (
     staticDestinations.has(request.destination) ||
     url.pathname.startsWith("/_next/static/")
   ) {
-    event.respondWith(cacheFirst(request));
+    event.respondWith(staleWhileRevalidate(request));
   }
 });
