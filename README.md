@@ -164,6 +164,28 @@ Run lint:
 npm run lint
 ```
 
+## Hostinger Production Build
+
+This project is configured for static hosting on Hostinger Business Web Hosting.
+
+Set the production environment variables first:
+
+```env
+NEXT_PUBLIC_SITE_URL=https://your-domain.com
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+GOOGLE_DRIVE_API_KEY=your_api_key_here
+```
+
+Then build:
+
+```bash
+npm run build:hostinger
+```
+
+Upload the contents of the generated `out/` folder to Hostinger `public_html`.
+
+The deployment includes Hostinger/LiteSpeed-friendly `.htaccess` rules for HTTPS, cache headers, compression, security headers, method blocking, and common scanner URL blocking. See `HOSTINGER_DEPLOYMENT.md` for the full launch checklist, Google Analytics setup, Google Search Console steps, and DDoS/rate-limiting notes.
+
 ## Environment Variables
 
 Create a local env file:
@@ -176,6 +198,8 @@ Expected variable:
 
 ```env
 GOOGLE_DRIVE_API_KEY=your_api_key_here
+NEXT_PUBLIC_SITE_URL=https://your-domain.com
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 ```
 
 If the key is missing or fails, the work page still functions by falling back to scraped public folder data or the local snapshot in `portfolioData.js`.

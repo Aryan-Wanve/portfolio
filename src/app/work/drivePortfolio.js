@@ -3,8 +3,6 @@ import { fallbackPortfolioGroups, portfolioRootId } from "./portfolioData";
 const DRIVE_BASE_URL = "https://drive.google.com/drive/folders";
 const DRIVE_API_BASE_URL = "https://www.googleapis.com/drive/v3/files";
 const GOOGLE_DRIVE_API_KEY = process.env.GOOGLE_DRIVE_API_KEY;
-const DRIVE_REFRESH_SECONDS = 60;
-
 function escapeForRegex(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
@@ -20,9 +18,7 @@ function decodeDriveText(value) {
 }
 
 async function fetchFolderHtml(folderId) {
-  const response = await fetch(`${DRIVE_BASE_URL}/${folderId}`, {
-    next: { revalidate: DRIVE_REFRESH_SECONDS },
-  });
+  const response = await fetch(`${DRIVE_BASE_URL}/${folderId}`);
 
   if (!response.ok) {
     throw new Error(`Drive fetch failed for folder ${folderId}: ${response.status}`);
@@ -42,9 +38,7 @@ async function fetchDriveApiList({ q, fields, orderBy = "name_natural" }) {
     supportsAllDrives: "true",
   });
 
-  const response = await fetch(`${DRIVE_API_BASE_URL}?${params.toString()}`, {
-    next: { revalidate: DRIVE_REFRESH_SECONDS },
-  });
+  const response = await fetch(`${DRIVE_API_BASE_URL}?${params.toString()}`);
 
   if (!response.ok) {
     throw new Error(`Drive API request failed: ${response.status}`);
